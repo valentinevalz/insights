@@ -3,20 +3,17 @@
   "framework": "nextjs",
   "builds": [
     {
-      "src": "recover-cart/package.json",
+      "src": "package.json",
       "use": "@vercel/next"
     }
   ],
   "functions": {
-    "recover-cart/app/api/**/*.js": {
+    "api/**/*.js": {
       "runtime": "nodejs20.x"
     }
   },
-  "ignoreCommand": "git check-ignore **/*",
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "recover-cart/$1"
-    }
+    { "src": "/(.*)", "dest": "/" }
   ]
 }
+
