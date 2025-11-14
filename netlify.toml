@@ -1,22 +1,10 @@
 [build]
   command = "npm install --legacy-peer-deps && npm run build"
   publish = ".next"
-  functions = "netlify/functions"
-
-[build.environment]
-  NODE_VERSION = "20"
-  NEXT_USE_NETLIFY_EDGE = "false"
-  NETLIFY_NEXT_PLUGIN_SKIP = "true"
-  AUTH_TRUST_HOST = "true"
-
-# Force all Next.js API routes to run in Node.js runtime
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
 
 [functions]
-  node_bundler = "esbuild"
-  included_files = ["next.config.js", "package.json"]
+  directory = "netlify/functions"
 
-[[edge_functions]]
-  function = "none" # disable auto-edge for Next.js middleware
-  path = "/*"
+[build.environment]
+  NODE_VERSION = "18"
+  NEXT_USE_NETLIFY_EDGE = "true"
