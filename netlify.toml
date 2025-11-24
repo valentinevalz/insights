@@ -1,10 +1,4 @@
 [build]
-  command = "npm install --legacy-peer-deps && npm run build"
+  command = "npm install --include=dev && npm run build"
   publish = ".next"
-
-[functions]
-  directory = "netlify/functions"
-
-[build.environment]
-  NODE_VERSION = "18"
-  NEXT_USE_NETLIFY_EDGE = "true"
+  functions = "netlify/functions"
